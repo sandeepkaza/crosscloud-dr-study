@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this orchestrator, harness, or dataset, please cite it as below."
+title: "Cross-Cloud Kubernetes Disaster Recovery Study: Orchestrator, Failure-Injection Harness, and Three-Cloud Failover Dataset"
+type: software
+authors:
+  - family-names: "Kaza"
+    given-names: "Venkata Sandeep Chowdary"
+    orcid: "https://orcid.org/0009-0001-9454-8995"
+repository-code: "https://github.com/sandeepkaza/crosscloud-dr-study"
+license: MIT
+date-released: "2026-07-18"
+keywords:
+  - disaster recovery
+  - kubernetes
+  - velero
+  - multi-cloud
+  - failure injection
+  - RTO
+  - RPO
+preferred-citation:
+  type: article
+  title: "Validated Failover: A Reference Architecture and Three-Cloud Failure-Injection Evaluation of Kubernetes Disaster Recovery"
+  authors:
+    - family-names: "Kaza"
+      given-names: "Venkata Sandeep Chowdary"
+      orcid: "https://orcid.org/0009-0001-9454-8995"
+  year: 2026
+  notes: "Preprint DOI to be added upon deposit."

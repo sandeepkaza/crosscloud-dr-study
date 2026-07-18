@@ -1,0 +1,27 @@
+# Static local-type PV (one per cluster). Velero fs-backup (kopia) skips
+# hostPath volumes — kind's default local-path provisioner creates hostPath
+# PVs, so the workload uses a manual StorageClass backed by this local PV.
+# Node dir /mnt/appdata must exist (docker exec <node> mkdir -p /mnt/appdata).
+# NODE_NAME is substituted per cluster before apply.
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: dr-local
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: appdata-local
+spec:
+  capacity: {storage: 1Gi}
+  accessModes: [ReadWriteOnce]
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: dr-local
+  local: {path: /mnt/appdata}
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - {key: kubernetes.io/hostname, operator: In, values: [NODE_NAME]}

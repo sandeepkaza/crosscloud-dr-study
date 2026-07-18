@@ -1,0 +1,200 @@
+CLOUD MATRIX START B=dr-oke 2026-07-17T22:25:24.2718638-05:00
+--- scenario F1c x3 B=dr-oke 2026-07-17T22:25:24.2933063-05:00
+=== F1c trial 1 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718032639
+injected F1c; pre_seq=861
+SCENARIO F1c FAILED (exit -1)
+CLOUD MATRIX START B=dr-oke 2026-07-17T22:40:19.1407821-05:00
+--- scenario F1c x3 B=dr-oke 2026-07-17T22:40:19.1784931-05:00
+=== F1c trial 1 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718034139
+injected F1c; pre_seq=600
+detected in 13.0s
+latest backup: app-sched-20260718034139 (+3.1s)
+restore done (+558.9s)
+RTO 583.8s  RPO 388 records / 79.0s
+
+=== F1c trial 2 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718035439
+injected F1c; pre_seq=1062
+detected in 13.1s
+latest backup: app-sched-20260718035539 (+3.7s)
+restore done (+61.9s)
+RTO 87.5s  RPO 380 records / 76.0s
+
+=== F1c trial 3 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718040039
+injected F1c; pre_seq=1189
+detected in 12.9s
+latest backup: app-sched-20260718040139 (+3.4s)
+restore done (+67.1s)
+RTO 92.2s  RPO 412 records / 83.0s
+
+cloud trials done
+--- scenario F2c x3 B=dr-oke 2026-07-17T23:04:44.6413600-05:00
+=== F2c trial 1 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718040639
+injected F2c; pre_seq=1101
+=== F2c trial 2 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718041039
+injected F2c; pre_seq=2291
+=== F2c trial 3 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718041439
+injected F2c; pre_seq=3492
+cloud trials done
+--- scenario F3c x3 B=dr-oke 2026-07-17T23:17:47.4602074-05:00
+=== F3c trial 1 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718041839
+injected F3c; pre_seq=4705
+detected in 19.5s
+latest backup: app-sched-20260718041939 (+3.5s)
+restore done (+62.0s)
+RTO 94.6s  RPO 396 records / 80.0s
+
+=== F3c trial 2 (B=dr-oke): heal
+starting AKS...
+steady: fresh backup app-sched-20260718043357
+aks stop failed: ERROR: (OperationNotAllowed) Operation is not allowed because there's an in-progress start managed cluster operation (operation ID: 3da3a675-9aab-4238-846c-248db07f6108) on the managed cluster started on UTC 2026-07-18T04:26:39Z. Please wait for it to finish before starting a new operation, or check
+SCENARIO F3c FAILED (exit 1)
+FINISH OKE START 2026-07-17T23:36:09.3937956-05:00
+--- scenario F3c x2 B=dr-oke (finish) 2026-07-17T23:36:09.4213251-05:00
+=== F3c trial 1 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718043757
+injected F3c; pre_seq=2026
+detected in 17.5s
+latest backup: app-sched-20260718043757 (+3.1s)
+restore done (+72.9s)
+RTO 102.7s  RPO 258 records / 52.0s
+
+=== F3c trial 2 (B=dr-oke): heal
+starting AKS...
+SCENARIO F3c FAILED (exit -1)
+FINISH OKE START 2026-07-17T23:51:54.8908586-05:00
+--- scenario F3c x1 B=dr-oke (finish) 2026-07-17T23:51:54.9649264-05:00
+=== F3c trial 1 (B=dr-oke): heal
+steady: fresh backup app-sched-20260718045804
+injected F3c; pre_seq=2937
+detected in 16.5s
+latest backup: app-sched-20260718045804 (+3.5s)
+restore done (+67.4s)
+RTO 96.7s  RPO 223 records / 45.0s
+
+cloud trials done
+--- scenario F1c x1 B=dr-oke (finish) 2026-07-18T00:00:41.8779601-05:00
+=== F1c trial 1 (B=dr-oke): heal
+starting AKS...
+AKS API not ready after start
+SCENARIO F1c FAILED (exit 1)
+FINISH OKE START 2026-07-18T00:17:23.4311346-05:00
+--- scenario F1c x1 B=dr-oke (finish) 2026-07-18T00:17:23.4651123-05:00
+=== F1c trial 1 (B=dr-oke): heal
+starting AKS...
+steady: fresh backup app-sched-20260718052419
+injected F1c; pre_seq=3806
+detected in 13.4s
+latest backup: app-sched-20260718052419 (+3.8s)
+restore done (+75.9s)
+RTO 102.3s  RPO 176 records / 36.0s
+
+cloud trials done
+FINISH OKE DONE 2026-07-18T00:26:48.3888062-05:00
+CLOUD MATRIX START B=dr-eks 2026-07-18T00:32:56.9712489-05:00
+--- scenario F1c x3 B=dr-eks 2026-07-18T00:32:56.9903355-05:00
+=== F1c trial 1 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718053419
+injected F1c; pre_seq=826
+detected in 13.9s
+latest backup: app-sched-20260718053519 (+2.3s)
+
+orchestrator failed:
+Traceback (most recent call last):
+  File "dr_orchestrator.py", line 205, in <module>
+    main()
+    ~~~~^^
+  File "dr_orchestrator.py", line 173, in main
+    restore(args.velero, bname, args.trial)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "dr_orchestrator.py", line 92, in restore
+    r = run([velero, "--kubecontext", CTX_B, "restore", "create", rname,
+             "--from-backup", name, "--wait"], timeout=600)
+  File "dr_orchestrator.py", line 40, in run
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\subprocess.py", line 1220, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\subprocess.py", line 1663, in _communicate
+    raise TimeoutExpired(self.args, orig_timeout)
+subprocess.TimeoutExpired: Command '['velero', '--kubecontext', 'dr-eks', 'restore', 'create', 'dr-1-1784353004', '--from-backup', 'app-sched-20260718053519', '--wait']' timed out after 600 seconds
+
+SCENARIO F1c FAILED (exit 1)
+CLOUD MATRIX START B=dr-eks 2026-07-18T01:03:44.5589078-05:00
+--- scenario F1c x3 B=dr-eks 2026-07-18T01:03:44.5899798-05:00
+=== F1c trial 1 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718060619
+injected F1c; pre_seq=1149
+detected in 13.9s
+latest backup: app-sched-20260718060719 (+2.3s)
+restore done (+20.0s)
+RTO 47.1s  RPO 269 records / 55.0s
+
+=== F1c trial 2 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718061119
+injected F1c; pre_seq=793
+detected in 13.6s
+latest backup: app-sched-20260718061119 (+2.4s)
+restore done (+20.8s)
+RTO 47.3s  RPO 320 records / 64.0s
+
+=== F1c trial 3 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718061619
+injected F1c; pre_seq=1326
+detected in 13.8s
+latest backup: app-sched-20260718061719 (+2.3s)
+restore done (+17.3s)
+RTO 40.2s  RPO 305 records / 62.0s
+
+cloud trials done
+--- scenario F2c x3 B=dr-eks 2026-07-18T01:19:11.2919465-05:00
+=== F2c trial 1 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718062119
+injected F2c; pre_seq=778
+=== F2c trial 2 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718062319
+injected F2c; pre_seq=1329
+=== F2c trial 3 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718062519
+injected F2c; pre_seq=1936
+cloud trials done
+--- scenario F3c x3 B=dr-eks 2026-07-18T01:27:09.4799474-05:00
+=== F3c trial 1 (B=dr-eks): heal
+steady: fresh backup app-sched-20260718062719
+injected F3c; pre_seq=2516
+detected in 17.9s
+latest backup: app-sched-20260718062719 (+2.3s)
+restore done (+21.4s)
+RTO 53.0s  RPO 270 records / 55.0s
+
+=== F3c trial 2 (B=dr-eks): heal
+starting AKS...
+steady: fresh backup app-sched-20260718063744
+injected F3c; pre_seq=1285
+detected in 17.6s
+latest backup: app-sched-20260718063844 (+2.5s)
+restore done (+23.0s)
+RTO 50.3s  RPO 157 records / 32.0s
+
+=== F3c trial 3 (B=dr-eks): heal
+starting AKS...
+steady: fresh backup app-sched-20260718064841
+injected F3c; pre_seq=2385
+detected in 20.3s
+latest backup: app-sched-20260718064841 (+2.3s)
+restore done (+24.6s)
+RTO 54.8s  RPO 199 records / 41.0s
+
+cloud trials done
+CLOUD MATRIX DONE B=dr-eks 2026-07-18T01:50:28.9414479-05:00

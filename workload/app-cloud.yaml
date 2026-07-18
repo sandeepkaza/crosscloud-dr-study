@@ -1,0 +1,54 @@
+# Sequenced-writer stateful workload (Paper 3 testbed).
+# Writer appends "<seq> <epoch_ms>" every 200 ms to a PVC-backed file:
+# sequence numbers make RPO exactly measurable (records lost), timestamps
+# convert it to seconds.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: app
+  labels: {dr: "true"}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: appdata
+  namespace: app
+spec:
+  accessModes: [ReadWriteOnce]
+  resources: {requests: {storage: 1Gi}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: writer
+  namespace: app
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: writer}}
+  template:
+    metadata:
+      labels: {app: writer}
+    spec:
+      containers:
+        - name: writer
+          image: docker.io/library/busybox:1.36
+          command:
+            - /bin/sh
+            - -c
+            - |
+              i=$(tail -n1 /data/log.txt 2>/dev/null | cut -d' ' -f1); i=${i:-0}
+              while true; do
+                i=$((i+1))
+                echo "$i $(date +%s)000" >> /data/log.txt
+                sleep 0.2
+              done
+          volumeMounts:
+            - {name: data, mountPath: /data}
+          readinessProbe:
+            exec: {command: [sh, -c, "test -s /data/log.txt"]}
+            initialDelaySeconds: 2
+            periodSeconds: 2
+      volumes:
+        - name: data
+          persistentVolumeClaim: {claimName: appdata}
+

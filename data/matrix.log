@@ -1,0 +1,115 @@
+MATRIX START 2026-07-17T20:23:29.3556712-05:00
+--- scenario F3 x5 2026-07-17T20:23:29.3948017-05:00
+=== F3 trial 1: heal + steady state
+steady: fresh backup app-sched-20260718012501
+injected (F3); pre_seq=675
+detected in 4.5s
+latest backup: app-sched-20260718012604 (+0.2s)
+restore done (+8.8s)
+RTO 16.1s  RPO 48 records / 10.0s
+
+=== F3 trial 2: heal + steady state
+steady: fresh backup app-sched-20260718012836
+injected (F3); pre_seq=454
+detected in 4.5s
+latest backup: app-sched-20260718012836 (+0.2s)
+restore done (+9.4s)
+RTO 16.7s  RPO 217 records / 46.0s
+
+=== F3 trial 3: heal + steady state
+steady: fresh backup app-sched-20260718013206
+injected (F3); pre_seq=456
+detected in 4.5s
+latest backup: app-sched-20260718013206 (+0.2s)
+restore done (+9.3s)
+RTO 16.6s  RPO 141 records / 30.0s
+
+=== F3 trial 4: heal + steady state
+steady: fresh backup app-sched-20260718013517
+injected (F3); pre_seq=455
+detected in 4.5s
+latest backup: app-sched-20260718013517 (+0.2s)
+restore done (+8.7s)
+RTO 16.2s  RPO 138 records / 29.0s
+
+=== F3 trial 5: heal + steady state
+steady: fresh backup app-sched-20260718013830
+injected (F3); pre_seq=432
+detected in 4.5s
+latest backup: app-sched-20260718013830 (+0.2s)
+restore done (+9.0s)
+RTO 14.1s  RPO 108 records / 23.0s
+
+all trials done
+--- scenario F1 x5 2026-07-17T20:39:14.9088181-05:00
+=== F1 trial 1: heal + steady state
+writer did not become ready on A
+MATRIX FAILED at F1
+RESUME START 2026-07-17T20:45:32.1917277-05:00
+--- scenario F1 x5 2026-07-17T20:45:32.2366756-05:00
+=== F1 trial 1: heal + steady state
+steady: fresh backup app-sched-20260718014753
+injected (F1); pre_seq=455
+detected in 12.0s
+latest backup: app-sched-20260718014753 (+0.2s)
+restore done (+9.7s)
+RTO 24.5s  RPO 147 records / 32.0s
+
+=== F1 trial 2: heal + steady state
+steady: fresh backup app-sched-20260718015103
+injected (F1); pre_seq=649
+detected in 12.1s
+latest backup: app-sched-20260718015103 (+0.2s)
+restore done (+8.8s)
+RTO 23.7s  RPO 159 records / 33.0s
+
+=== F1 trial 3: heal + steady state
+steady: fresh backup app-sched-20260718015414
+injected (F1); pre_seq=626
+detected in 12.2s
+latest backup: app-sched-20260718015414 (+0.2s)
+restore done (+9.5s)
+RTO 24.6s  RPO 144 records / 31.0s
+
+=== F1 trial 4: heal + steady state
+steady: fresh backup app-sched-20260718015724
+injected (F1); pre_seq=649
+detected in 12.0s
+latest backup: app-sched-20260718015724 (+0.2s)
+restore done (+7.9s)
+RTO 22.7s  RPO 161 records / 34.0s
+
+=== F1 trial 5: heal + steady state
+steady: fresh backup app-sched-20260718020034
+injected (F1); pre_seq=623
+detected in 11.9s
+latest backup: app-sched-20260718020034 (+0.2s)
+restore done (+8.6s)
+RTO 23.3s  RPO 144 records / 30.0s
+
+all trials done
+--- scenario F2 x3 2026-07-17T21:01:33.0495996-05:00
+=== F2 trial 1: heal + steady state
+steady: fresh backup app-sched-20260718020344
+injected (F2); pre_seq=649
+control outcome: self-healed
+=== F2 trial 2: heal + steady state
+steady: fresh backup app-sched-20260718020551
+injected (F2); pre_seq=192
+control outcome: self-healed
+=== F2 trial 3: heal + steady state
+steady: fresh backup app-sched-20260718020758
+injected (F2); pre_seq=217
+control outcome: self-healed
+all trials done
+--- scenario F4 x2 2026-07-17T21:09:03.0318168-05:00
+=== F4 trial 1: heal + steady state
+steady: fresh backup app-sched-20260718021005
+injected (F4); pre_seq=218
+control outcome: self-healed
+=== F4 trial 2: heal + steady state
+steady: fresh backup app-sched-20260718021420
+injected (F4); pre_seq=217
+control outcome: self-healed
+all trials done
+MATRIX DONE 2026-07-17T21:17:26.3768685-05:00
