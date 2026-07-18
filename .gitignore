@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pdf
+*.png
+.venv/
+kubeconfig*
+credentials-velero
+*.log.tmp
