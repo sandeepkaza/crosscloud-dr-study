@@ -9,6 +9,10 @@ authors:
 repository-code: "https://github.com/sandeepkaza/crosscloud-dr-study"
 license: MIT
 date-released: "2026-07-18"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21757505"
+    description: "Zenodo archive of this repository (paper + data)"
 keywords:
   - disaster recovery
   - kubernetes
@@ -25,4 +29,4 @@ preferred-citation:
       given-names: "Venkata Sandeep Chowdary"
       orcid: "https://orcid.org/0009-0001-9454-8995"
   year: 2026
-  notes: "Preprint DOI to be added upon deposit."
+  doi: "10.5281/zenodo.21757505"
